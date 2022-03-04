@@ -1,0 +1,22 @@
+package spring.normal.member;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MemoryMemberRepository implements MemberRepository {
+
+    //키 롱 타입, 값 멤버
+    private static Map<Long, Member> store = new HashMap<>();
+
+    @Override
+    //멤버 아이디가 키, 값은 멤버 받아서
+    public void save(Member member) {
+        store.put(member.getId(), member);
+    }
+
+    //맵의 겟을 이용해서
+    @Override
+    public Member findById(Long memberId) {
+        return store.get(memberId);
+    }
+}
