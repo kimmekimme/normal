@@ -14,7 +14,7 @@ public class MemoryMemberRepository implements MemberRepository {
         store.put(member.getId(), member);
     }
 
-    //맵의 겟을 이용해서
+    //맵의 겟을 이용해서 아이디 찾아오는 메서드
     @Override
     public Member findById(Long memberId) {
         return store.get(memberId);
